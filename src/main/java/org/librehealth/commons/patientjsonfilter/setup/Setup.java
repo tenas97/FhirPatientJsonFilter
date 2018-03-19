@@ -14,8 +14,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 /**
- * Component which is run at setup. It gets five patients from fhir server, one encounter
- * for each patient and 5 observations for each encounter then stores in the database
+ * Setup is executed on startup. Gets 5 patient resources, 5 encounters per patient,
+ * and 5 observations per encounter and saves it.
  */
 @Component
 public class Setup implements CommandLineRunner {
@@ -28,15 +28,6 @@ public class Setup implements CommandLineRunner {
 	@Override
 	public void run(String... strings) {
 
-		System.out.println();
-		System.out.println("Hey");
-		System.out.println("Hey");
-		System.out.println("Hey");
-		System.out.println("Hey");
-		System.out.println("Hey");
-		System.out.println("Hey");
-		System.out.println("Hey");
-		System.out.println("Hey");
 		Initialize initialize = new Initialize();
 		List<String> encounters = initialize.downloadEncounters();
 		List<String> observations = initialize.downloadObservations();
@@ -45,7 +36,6 @@ public class Setup implements CommandLineRunner {
 
 			try{
 
-				// Get patient
 				Patient patient = ResourceService.getPatientById(patientIds[i]);
 				for(Name name : patient.getName()){
 					name.setPatient(patient);
@@ -65,9 +55,7 @@ public class Setup implements CommandLineRunner {
 
 				patientRepo.save(patient);
 
-				System.out.println("Patient "+i+" is" + patient);
-				System.out.println(encounters.size() + " As Encounter Size");
-				System.out.println(observations.size() + " As Observation Size");
+				System.out.println("Done Saving Resource " + i+1);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

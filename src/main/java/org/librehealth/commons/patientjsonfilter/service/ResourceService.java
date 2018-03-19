@@ -9,7 +9,7 @@ import org.librehealth.commons.patientjsonfilter.model.Patient;
 import org.librehealth.commons.patientjsonfilter.setup.ApacheHttpClientGet;
 
 /**
- * Get Json string representation of Resources by id
+ * Get Json representation of resources
  */
 public class ResourceService {
 
