@@ -17,7 +17,7 @@ public class ObservationController {
 		private ObservationService observationService;
 
 		@RequestMapping("/patients/{PatientId}/encounters/{id}/observations")
-		public List<Observation> getAllPatients(@PathVariable String id){
+		public List<Observation> getAllPatients(@PathVariable Integer id){
 			return observationService.getAllPatientObservations(id);
 		}
 

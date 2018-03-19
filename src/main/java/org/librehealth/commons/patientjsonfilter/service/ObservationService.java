@@ -14,7 +14,7 @@ public class ObservationService {
 		@Autowired
 		private ObservationRepository observationRepository;
 
-		public List<Observation> getAllPatientObservations(String id){
+		public List<Observation> getAllPatientObservations(int id){
 
 			List<Observation> observation = new ArrayList<>();
 			observationRepository.findAllByEncounterId(id).forEach(observation::add);

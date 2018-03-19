@@ -18,10 +18,10 @@ public class EncounterController {
 		private EncounterService encounterService;
 
 		@RequestMapping("/patients/{id}/encounters")
-		public List<Encounter> getAllPatients(@PathVariable String id){
+		public List<Encounter> getAllPatients(@PathVariable int id){
 			return encounterService.getAllPatientEncounters(id);
 		}
-
+		
 }
 
 

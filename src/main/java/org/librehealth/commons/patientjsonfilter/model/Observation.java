@@ -1,33 +1,38 @@
 package org.librehealth.commons.patientjsonfilter.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Observation {
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int id;
+	private String id;
 
 	private String status;
 
+	@JsonProperty("resourceType")
+	private String resourceType;
+
 	@ManyToOne
-	@JoinColumn(name="ENTCOUNTER_ID", nullable=false)
+	@JoinColumn(name="patient", nullable=false)
+	private Patient subject;
+
+	@ManyToOne
+	@JoinColumn(name="encounter", nullable=false)
 	private Encounter encounter;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

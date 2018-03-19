@@ -21,7 +21,7 @@ public class PatientController {
 	}
 
 	@RequestMapping("/patients/{id}")
-	public Patient getPatient(@PathVariable String id){
+	public Patient getPatient(@PathVariable int id){
 		return patientService.getPatient(id);
 	}
 

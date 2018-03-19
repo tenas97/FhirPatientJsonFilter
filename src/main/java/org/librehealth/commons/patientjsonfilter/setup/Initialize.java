@@ -69,7 +69,7 @@ public  class Initialize {
 					.execute();
 
 			response.getEntry().forEach((entry) -> {
-				observations.add(entry.getResource().getId());
+				observations.add(entry.getId());
 			});
 		}
 		System.out.println("Found " + observations.size()

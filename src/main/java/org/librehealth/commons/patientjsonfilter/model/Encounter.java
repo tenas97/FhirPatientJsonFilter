@@ -25,9 +25,11 @@ public class Encounter {
 	private String status;
 
 	@ManyToOne
-	@JoinColumn(name="PATIENT_ID", nullable=false)
+	@JoinColumn(name="patient", nullable=false)
 	private Patient patient;
 
+	@JsonProperty("resourceType")
+	private String resourceType;
 
 	@OneToMany(mappedBy = "encounter")
 	private List<Observation> observations = new ArrayList<>();

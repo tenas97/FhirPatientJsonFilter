@@ -14,7 +14,7 @@ public class EncounterService {
 		@Autowired
 		private EncounterRepository encounterRepository;
 
-		public List<Encounter> getAllPatientEncounters(String id){
+		public List<Encounter> getAllPatientEncounters(int id){
 
 			List<Encounter> encounter = new ArrayList<>();
 			encounterRepository.findAllByPatientId(id).forEach(encounter::add);

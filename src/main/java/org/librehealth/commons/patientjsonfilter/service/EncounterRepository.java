@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
  * Created by tenas on 3/18/18.
  */
 public interface EncounterRepository extends CrudRepository<Encounter, String> {
-	public Iterable<Encounter> findAllByPatientId(String id);
+	public Iterable<Encounter> findAllByPatientId(int id);
 }
